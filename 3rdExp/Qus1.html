@@ -1,0 +1,19 @@
+<!-- write a js to prompt for username and display on screen -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Username Prompt</title>
+</head>
+<body>
+  <h1 id="greeting">Welcome!</h1>
+
+  <script>
+    const username = prompt("Please enter your username:");
+    if (username) {
+      document.getElementById('greeting').textContent = `Welcome, ${username}!`;
+    } else {
+      document.getElementById('greeting').textContent = "Welcome, Guest!";
+    }
+  </script>
+</body>
+</html>

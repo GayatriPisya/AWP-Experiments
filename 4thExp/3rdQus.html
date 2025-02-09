@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Numbers Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Prime Numbers Finder</h2>
+    <input type="number" id="limit" placeholder="Enter a number" min="2">
+    <button onclick="displayPrimes()">Find Primes</button>
+    <div id="result"></div>
+
+    <script>
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        function displayPrimes() {
+            let limit = document.getElementById("limit").value;
+            let resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "";
+
+            if (limit < 2) {
+                resultDiv.innerHTML = "Please enter a number greater than or equal to 2.";
+                return;
+            }
+
+            let primes = [];
+            for (let i = 2; i <= limit; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+            }
+
+            resultDiv.innerHTML = "Prime numbers up to " + limit + ":<br>" + primes.join(", ");
+        }
+    </script>
+
+</body>
+</html>

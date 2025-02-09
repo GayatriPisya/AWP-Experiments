@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Page</title>
+</head>
+<body>
+  <script>
+    const container = document.createElement('div');
+    container.style.fontFamily = 'Arial, sans-serif';
+    container.style.textAlign = 'center';
+    container.style.padding = '20px';
+
+    const title = document.createElement('h1');
+    title.textContent = 'Welcome to My Website';
+    container.appendChild(title);
+
+    const message = document.createElement('p');
+    message.textContent = 'This page was created dynamically using JavaScript!';
+    container.appendChild(message);
+
+    const knowMoreButton = document.createElement('button');
+    knowMoreButton.textContent = 'Know More About Me';
+    knowMoreButton.style.padding = '10px 20px';
+    knowMoreButton.style.fontSize = '16px';
+    knowMoreButton.style.marginRight = '10px';
+    knowMoreButton.style.borderRadius = '8px';
+    knowMoreButton.addEventListener('click', () => {
+      alert('Hi! I am passionate about creating functional web pages.');
+    });
+    container.appendChild(knowMoreButton);
+
+    document.body.style.display = 'flex';
+    document.body.style.justifyContent = 'center';
+    document.body.style.alignItems = 'center';
+    document.body.style.height = '100vh';
+    document.body.style.margin = '0';
+    document.body.appendChild(container);
+  </script>
+</body>
+</html>

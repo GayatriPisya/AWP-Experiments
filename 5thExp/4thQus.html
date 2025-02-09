@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click to Change Background</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: background-color 0.5s ease-in-out;
+        }
+        h2 {
+            margin-top: 20%;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Click Anywhere on the Screen to Change Background Color</h2>
+
+    <script>
+        function changeColor() {
+            let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        }
+        document.documentElement.addEventListener("click", changeColor);
+    </script>
+
+</body>
+</html>
