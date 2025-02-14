@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Sidebar Slide Effect</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .sidebar {
+            padding-top: 80px;
+            position: fixed;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #222;
+            color: white;
+            transition: left 0.5s ease-in-out;
+        }
+
+        .sidebar.active {
+            left: 0; 
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 10px 15px;
+            border: none;
+            background: #333;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: left 0.5s ease-in-out, top 0.3s ease-in-out;
+        }
+
+        .sidebar.active .toggle-btn {
+            position: absolute;
+            top: 10px;
+            left: 20%;
+            transform: translateX(-50%);
+            
+        }
+    </style>
+</head>
+<body>
+
+    <button class="toggle-btn" id="toggleSidebar">☰</button>
+
+    <div class="sidebar" id="sidebar">
+        <h2>Sidebar Menu</h2>
+        <p>Click the button to hide/show.</p>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#toggleSidebar").click(function(){
+                $("#sidebar").toggleClass("active");
+                if ($("#sidebar").hasClass("active")) {
+                    $("#toggleSidebar").appendTo("#sidebar").text("✖ Close");
+                } else {
+                    $("#toggleSidebar").appendTo("body").text("☰");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

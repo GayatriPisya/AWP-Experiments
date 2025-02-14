@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade In/Out Effect</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .fade-btn {
+            position: absolute;
+            top: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .content-box {
+            padding: 30px;
+            border-radius: 10px;
+            background: rgb(191, 153, 220);
+            color: rgb(249, 247, 247);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="fade-btn" id="fadeText">Click me</button>
+
+    <div class="content-box" id="contentBox">
+        <p>Click the button to fade in/out this text.</p>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            let isVisible = true;
+            $("#fadeText").click(function(){
+                if (isVisible) {
+                    $("#contentBox").fadeOut(1000);
+                } else {
+                    $("#contentBox").fadeIn(1000);
+                }
+                isVisible = !isVisible;
+            });
+        });
+    </script>
+
+</body>
+</html>
