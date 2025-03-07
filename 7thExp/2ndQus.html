@@ -18,6 +18,13 @@
             left: 50%;
             transform: translate(-50%, -50%);
             cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        #box:hover {
+            background-color: #3498db;
+            color: white;
         }
     </style>
 </head>
@@ -27,13 +34,14 @@
     <script>
         $(document).ready(function() {
             $("#box").mouseenter(function() {
-                alert("Mouse Entered the Box!");
+                $(this).css("background-color", "#3498db").css("color", "white");
             });
 
             $("#box").mouseleave(function() {
-                alert("Mouse Left the Box!");
+                $(this).css("background-color", "lightblue").css("color", "#333");
             });
         });
     </script>
 </body>
 </html>
+
