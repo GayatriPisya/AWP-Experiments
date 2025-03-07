@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Mouse Enter & Leave Event</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">Hover Over Me</div>
+
+    <script>
+        $(document).ready(function() {
+            $("#box").mouseenter(function() {
+                alert("Mouse Entered the Box!");
+            });
+
+            $("#box").mouseleave(function() {
+                alert("Mouse Left the Box!");
+            });
+        });
+    </script>
+</body>
+</html>
