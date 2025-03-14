@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Multiplication Table</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="container mt-5">
+
+    <h2 class="text-center">Multiplication Table Generator</h2>
+    
+    <div class="mb-3">
+        <label for="number" class="form-label">Enter a Number:</label>
+        <input type="number" id="number" class="form-control" placeholder="Enter a number">
+    </div>
+    
+    <button class="btn btn-primary" onclick="generateTable()">Generate Table</button>
+
+    <h3 class="mt-4">Result:</h3>
+    <div id="result" class="border p-3"></div>
+
+    <script>
+        function generateTable() {
+            var num = document.getElementById("number").value;
+
+            if (num === "") {
+                alert("Please enter a number!");
+                return;
+            }
+
+            $.ajax({
+                url: "table.php",
+                type: "POST",
+                data: { number: num },
+                success: function(response) {
+                    $("#result").html(response);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
